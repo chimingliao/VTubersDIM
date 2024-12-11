@@ -4,12 +4,10 @@ fetch('data.json')
         const chatContainer = document.getElementById('chat-container');
         let index = 0;
 
-        // 滾動到容器底部
         function scrollToBottom() {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
-        // 顯示消息
         function showMessage() {
             if (index < messages.length) {
                 const msg = messages[index];
@@ -38,7 +36,7 @@ fetch('data.json')
                     if (charIndex < text.length) {
                         bubble.textContent += text[charIndex];
                         charIndex++;
-                        scrollToBottom(); // 每次添加字符時滾動到底部
+                        scrollToBottom(); // 實時滾動到最底部
                         setTimeout(typeChar, 30);
                     } else {
                         index++;
@@ -49,7 +47,6 @@ fetch('data.json')
             }
         }
 
-        // 初始顯示第一條消息
         showMessage();
     })
     .catch(error => console.error('Error loading messages:', error));
