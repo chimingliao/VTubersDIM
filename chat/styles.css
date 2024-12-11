@@ -14,12 +14,22 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    overflow-y: auto; /* 開啟垂直滾動 */
+    max-height: 80vh; /* 設置容器最大高度 */
+    scrollbar-width: none; /* Firefox 隱藏滾動條 */
+    -ms-overflow-style: none; /* IE 10+ 隱藏滾動條 */
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera 隱藏滾動條 */
 }
 
 .message {
     display: flex;
     margin-bottom: 15px;
     align-items: flex-end;
+    opacity: 0; /* 初始透明，逐漸顯示 */
+    transition: opacity 0.3s ease-in-out; /* 平滑顯示效果 */
 }
 
 .message.user {
